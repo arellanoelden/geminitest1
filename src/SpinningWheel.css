@@ -1,0 +1,75 @@
+/* src/SpinningWheel.css */
+
+.wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  position: relative; /* Needed for pointer positioning */
+}
+
+/* New wrapper for the SVG to control its position and transition */
+.wheel-svg-wrapper {
+  position: relative;
+  border-radius: 50%;
+  border: 10px solid #333;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Ensures the SVG is contained */
+}
+
+.wheel-svg {
+  /* Transition applies to the SVG itself */
+  transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth spinning effect */
+  display: block; /* Remove extra space below SVG */
+}
+
+/* Styles for SVG elements (path and text) are mostly in JS, but here's some defaults */
+.wheel-svg path {
+  /* Specific styling could go here if needed */
+}
+
+.wheel-svg text {
+  /* Specific styling could go here if needed */
+}
+
+.wheel-pointer {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid red; /* Red triangle pointer */
+  position: absolute;
+  top: 30px; /* Position above the wheel */
+  z-index: 10;
+  transform: translateX(-50%); /* Center the pointer horizontally */
+  left: 50%;
+}
+
+button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.5em;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.winning-message {
+  margin-top: 20px;
+  font-size: 1.8em;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
